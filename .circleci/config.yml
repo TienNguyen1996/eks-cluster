@@ -15,10 +15,12 @@ workflows:
           checkout: true
           context: terraform
           resource_class: small
+          path: terraform
       - terraform/validate:
           checkout: true
           context: terraform
           resource_class: small
+          path: terraform
           requires:
             - terraform/fmt
       - terraform/plan:
@@ -26,5 +28,6 @@ workflows:
           context: terraform
           persist-workspace: true
           resource_class: small
+          path: terraform
           requires:
             - terraform/validate
