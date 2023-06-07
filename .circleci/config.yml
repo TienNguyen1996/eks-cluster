@@ -23,12 +23,8 @@ workflows:
           resource_class: small
           persist-workspace: true
           path: terraform
-      - terraform/fmt:
-          checkout: true
-          context: terraform
-          resource_class: small
-          persist-workspace: true
-          path: terraform
+          requires:
+            - terraform/init
       - terraform/validate:
           checkout: true
           context: terraform
