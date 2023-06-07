@@ -19,40 +19,10 @@ jobs:
           path: .
       - terraform/plan:
           path: .
-      - terraform/apply:
-          path: .
-      - terraform/destroy:
-          path: .
     working_directory: terraform
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
   terraform:
     jobs:
-      - terraform/init:
-          checkout: true
-          context: terraform
-          resource_class: small
-          path: terraform
-      - terraform/fmt:
-          checkout: true
-          context: terraform
-          resource_class: small
-          path: terraform
-          requires:
-            - terraform/init
-      - terraform/validate:
-          checkout: true
-          context: terraform
-          resource_class: small
-          path: terraform
-          requires:
-            - terraform/fmt
-      - terraform/plan:
-          checkout: true
-          context: terraform
-          persist-workspace: true
-          resource_class: small
-          path: terraform
-          requires:
-            - terraform/validate
+      - terraform-check
