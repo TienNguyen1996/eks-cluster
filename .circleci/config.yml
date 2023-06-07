@@ -13,13 +13,13 @@ jobs:
     steps:
       - checkout
       - terraform/init:
-          path: .
+          path: terraform
       - terraform/validate:
-          path: .
+          path: terraform
       - terraform/fmt:
-          path: .
+          path: terraform
       - terraform/plan:
-          path: .
+          path: terraform
     working_directory: ~/terraform
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
