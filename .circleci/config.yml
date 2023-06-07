@@ -20,7 +20,6 @@ workflows:
           checkout: true
           context: terraform
           resource_class: small
-          persist-workspace: true
           path: terraform
           requires:
             - terraform/init
@@ -29,7 +28,6 @@ workflows:
           context: terraform
           resource_class: small
           path: terraform
-          persist-workspace: true
           requires:
             - terraform/fmt
       - terraform/plan:
