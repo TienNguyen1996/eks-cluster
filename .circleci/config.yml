@@ -1,6 +1,8 @@
 version: 2.1
 orbs:
   terraform: circleci/terraform@3.2.1
+  aws-cli: circleci/aws-cli@4.0.0
+
 jobs:
   terraform-check:
     executor: terraform/default
